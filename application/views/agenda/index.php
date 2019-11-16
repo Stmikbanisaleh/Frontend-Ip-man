@@ -18,9 +18,9 @@
                                     <div class="row">
                                         <div class="col-md-4">
                                             <?php if ($start) { ?>
-                                                <img class="img-responsive" src="<?= base_url() ?>../assets/img_agenda/<?= $ag['foto']; ?>" alt="">
+                                                <img class="img-responsive" src="<?= URL_API_DOWNLOAD.$ag['foto']; ?>" alt="">
                                             <?php } else { ?>
-                                                <img class="img-responsive" src="<?= base_url() ?>../assets/img_agenda/<?= $ag['foto']; ?>" alt="">
+                                                <img class="img-responsive" src="<?= URL_API_DOWNLOAD.$ag['foto']; ?>" alt="">
                                             <?php } ?>
                                             <div class="md-margin-bottom-20"></div>
                                         </div>

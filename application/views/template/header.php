@@ -77,7 +77,7 @@
 
                         </div>
                         <div class="col-sm-4 col-xs-4 clearfix">
-                            <?php if ($user) { ?>
+                            <!-- <?php if ($user) { ?>
                                 <ul class="topbar-list topbar-log_reg pull-right visible-sm-block visible-md-block visible-lg-block">
                                     <img height="25px" width="25px" src="../assets/img_user/<?= $user['image']; ?>">
                                     <li class="cd-log_reg home"><?= $user['name']; ?></li>
@@ -87,7 +87,7 @@
                                 <ul class="topbar-list topbar-log_reg pull-right visible-sm-block visible-md-block visible-lg-block">
                                     <li class="cd-log_reg home"><a href="<?= base_url('login'); ?>">Login</a></li>
                                 </ul>
-                            <?php } ?>
+                            <?php } ?> -->
                         </div>
                     </div>
                     <!--/end row-->

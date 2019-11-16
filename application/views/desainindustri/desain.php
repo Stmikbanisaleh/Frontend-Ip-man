@@ -13,8 +13,8 @@
                 <h2> Desain Industri Tedaftar</h2>
                 <?php if ($jumlahDesain) {
                     foreach ($jumlahDesain as $data) {
-                        $tahun[] = (float) $data->tahun;
-                        $total[] = (float) $data->total;
+                        $tahun[] = (float) $data['tahun'];
+                        $total[] = (float) $data['total'];
                     }
                 }
                 ?>
@@ -72,7 +72,7 @@
     var target = 'desain/detail';
 
     function viewdata(id) {
-        document.location = 'http://localhost/pusispan/ip-man/' + target + '/' + id;
+        document.location = '<?= base_url() ?>' + target + '/' + id;
         //Ganti sesuai server
         //document.location = 'http://pusispan.stmik-banisaleh.com/pusispan/ip-man/' + target + '/' + id;
     }

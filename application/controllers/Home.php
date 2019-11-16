@@ -7,23 +7,39 @@ class Home extends CI_Controller
     public function __construct()
     {
         parent::__construct();
-        $this->load->model('Home_model', 'm_home');
     }
 
     public function index()
     {
-        $data['user'] = $this->db->get_where('msuser', ['email' =>
-        $this->session->userdata('email')])->row_array();
+        $getKegiatanMt = $this->lapan_api_library->call('kegiatan/getkegiatanmt', ['token' => TOKEN]);
+        $data['kmt'] = $getKegiatanMt['rows'][0];
 
-        $data['berita'] = $this->m_home->getListBerita();
-        $data['agenda'] = $this->m_home->getListAgenda();
-        $data['kmt'] = $this->m_home->getKegiatanMT();
+        $hasil_listberita = $this->lapan_api_library->call('berita/getlistberita', ['token' => TOKEN]);
+        $data['berita'] = $hasil_listberita['rows'];
 
-        $data['link'] = $this->db->get('link_terkait')->result_array();
-        $data['akses'] = $this->db->get('akses_cepat')->result_array();
-        $data['menu'] = $this->db->get_where('menu', array('id_parent' => '', 'id_posisi' => 2))->result_array();
-        $data['submenu'] = $this->db->get('menu')->result_array();
+        $hasil_listagenda = $this->lapan_api_library->call('agenda/getlistagendalimit3', ['token' => TOKEN]);
+        $data['agenda'] = $hasil_listagenda['rows'];
+
+       //========================================  Menu ========================================================//
+
         $data['uri'] = $this->uri->segment(1);
+
+        $getlistlink = $this->lapan_api_library->call('link/getlink', ['token' => TOKEN]);
+        $data['link'] = $getlistlink['rows'];
+
+        $getaksescepat = $this->lapan_api_library->call('aksescepat/getaksescepat', ['token' => TOKEN]);
+        $data['akses'] = $getaksescepat['rows'];
+
+        $data_menuwhere = [
+            'token' => TOKEN,
+            'id_parent' => '',
+            'id_posisi' => 2
+        ];
+        $getmenuwhere = $this->lapan_api_library->call('menu/getmenuwhere', $data_menuwhere);
+        $data['menu'] = $getmenuwhere['rows'];
+
+        $getmenu = $this->lapan_api_library->call('menu/getmenu', ['token' => TOKEN]);
+        $data['submenu'] = $getmenu['rows'];
 
         $this->load->view('template/header', $data);
         $this->load->view('home', $data);

@@ -28,7 +28,7 @@ class Desain_model extends CI_Model
                                 msrev
                             WHERE
                                 ID = `msdesainindustri`.`STATUS`) as STATUS
-                                FROM `msdesainindustri`
+        FROM `msdesainindustri`
         WHERE `msdesainindustri`.`ID` =$id
         ";
         return $this->db->query($query)->row_array();
