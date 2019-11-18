@@ -40,19 +40,19 @@
         <tbody>
             <?php $i = 1; ?>
             <?php foreach ($getDesain as $dsn) : ?>
-            <?php $id = $dsn['ID']; ?>
+            <?php $id = $dsn['id']; ?>
             <tr id="view_tabel" onclick="viewdata(<?php echo $id ?>)" id=<?= $id; ?>>
                 <td><?= $i ?></td>
-                <td><?= $dsn['JUDUL']; ?></td>
-                <td><?= $dsn['NAMA_REV'] ?></td>
+                <td><?= $dsn['judul']; ?></td>
+                <td><?= $dsn['nama_rev'] ?></td>
                 <td>
                     <?php foreach ($getPendesain as $gpeg) { ?>
-                    <?php if ($gpeg['ID_DESAIN_INDUSTRI'] == $dsn['ID']) { ?>
-                    <?= $gpeg['NAMA']; ?>;
+                    <?php if ($gpeg['id_desain_industri'] == $dsn['id']) { ?>
+                    <?= $gpeg['nama']; ?>;
                     <?php } ?>
                     <?php } ?>
                 </td>
-                <td><?= date('d-m-Y', strtotime($dsn['TGL_INPUT'])) ?></td>
+                <td><?= date('d-m-Y', strtotime($dsn['tgl_input'])) ?></td>
             </tr>
             <?php $i++; ?>
             <?php endforeach; ?>

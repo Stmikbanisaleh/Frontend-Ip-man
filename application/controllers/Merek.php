@@ -17,11 +17,26 @@ class Merek extends CI_Controller
         }
         $data['jumlahMerek'] = $this->merek->getJumlahMerek();
 
-        $data['link'] = $this->db->get('link_terkait')->result_array();
-        $data['akses'] = $this->db->get('akses_cepat')->result_array();
-        $data['menu'] = $this->db->get_where('menu', array('id_parent' => '', 'id_posisi' => 2))->result_array();
-        $data['submenu'] = $this->db->get('menu')->result_array();
+        //========================================  Menu ========================================================//
+
         $data['uri'] = $this->uri->segment(1);
+
+        $getlistlink = $this->lapan_api_library->call('link/getlink', ['token' => TOKEN]);
+        $data['link'] = $getlistlink['rows'];
+
+        $getaksescepat = $this->lapan_api_library->call('aksescepat/getaksescepat', ['token' => TOKEN]);
+        $data['akses'] = $getaksescepat['rows'];
+
+        $data_menuwhere = [
+            'token' => TOKEN,
+            'id_parent' => '',
+            'id_posisi' => 2
+        ];
+        $getmenuwhere = $this->lapan_api_library->call('menu/getmenuwhere', $data_menuwhere);
+        $data['menu'] = $getmenuwhere['rows'];
+
+        $getmenu = $this->lapan_api_library->call('menu/getmenu', ['token' => TOKEN]);
+        $data['submenu'] = $getmenu['rows'];
 
         $this->load->view('template/header', $data);
         $this->load->view('merek/merek', $data);
@@ -40,11 +55,26 @@ class Merek extends CI_Controller
         $code = $data['getMerek']['IPMAN_CODE'];
         $data['getDocument'] = $this->merek->getDocumentByCode($code);
 
-        $data['link'] = $this->db->get('link_terkait')->result_array();
-        $data['akses'] = $this->db->get('akses_cepat')->result_array();
-        $data['menu'] = $this->db->get_where('menu', array('id_parent' => '', 'id_posisi' => 2))->result_array();
-        $data['submenu'] = $this->db->get('menu')->result_array();
+        //========================================  Menu ========================================================//
+
         $data['uri'] = $this->uri->segment(1);
+
+        $getlistlink = $this->lapan_api_library->call('link/getlink', ['token' => TOKEN]);
+        $data['link'] = $getlistlink['rows'];
+
+        $getaksescepat = $this->lapan_api_library->call('aksescepat/getaksescepat', ['token' => TOKEN]);
+        $data['akses'] = $getaksescepat['rows'];
+
+        $data_menuwhere = [
+            'token' => TOKEN,
+            'id_parent' => '',
+            'id_posisi' => 2
+        ];
+        $getmenuwhere = $this->lapan_api_library->call('menu/getmenuwhere', $data_menuwhere);
+        $data['menu'] = $getmenuwhere['rows'];
+
+        $getmenu = $this->lapan_api_library->call('menu/getmenu', ['token' => TOKEN]);
+        $data['submenu'] = $getmenu['rows'];
 
         $this->load->view('template/header', $data);
         $this->load->view('merek/detailmerek', $data);

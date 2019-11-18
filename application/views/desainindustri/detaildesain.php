@@ -10,17 +10,17 @@
 
             <b>Nama Desain Industri</b>
             <div class="margin-left-10 margin-bottom-10">
-                <?= $getDesain['JUDUL']; ?>
+                <?= $getDesain['judul']; ?>
             </div>
 
             <b>Satuan Kerja</b>
             <div class="margin-left-10 margin-bottom-10">
-                <?= $getDesain['SATUAN_KERJA']; ?>
+                <?= $getDesain['satuan_kerja']; ?>
             </div>
 
             <b>Status</b>
             <div class="margin-left-10 margin-bottom-10">
-                <?= $getDesain['STATUS']; ?>
+                <?= $getDesain['status']; ?>
             </div>
 
             <b>Nomor Pendaftaran</b>
@@ -48,7 +48,7 @@
             <b>Nama Pencipta Desain</b>
             <div class="margin-left-10 margin-bottom-20 margin-top-20">
                 <?php foreach ($getPendesain as $gdes) { ?>
-                <?= $gdes['NAMA']; ?>;
+                <?= $gdes['nama']; ?>;
                 <hr class="hr-xs">
                 <?php } ?>
             </div>
@@ -60,7 +60,7 @@
                     <?php foreach ($getDocument as $gdoc) { ?>
                     <tr>
                         <td><?= $i; ?></td>
-                        <td><?= $gdoc['NAME']; ?></td>
+                        <td><?= $gdoc['name']; ?></td>
                         <td><a class="btn btn-xs btn-default"><i class="fa fa-download"></i></a></td>
                         <?php $i++; ?>
                     </tr>
