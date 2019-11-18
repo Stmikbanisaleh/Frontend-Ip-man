@@ -10,7 +10,6 @@ class Desain extends CI_Controller
         $data['getDesain'] = $getDesain['rows'];
 
         $this->load->model('Desain_model', 'Desain');
-
         foreach ($data['getDesain'] as $gd) {
             $idd = $gd['ID'];
             $data['getPendesain'] = $this->Desain->getPendesain($idd);
