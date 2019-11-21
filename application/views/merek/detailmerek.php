@@ -10,23 +10,23 @@
 
             <b>Judul</b>
             <div class="margin-left-10 margin-bottom-10">
-                <?= $getMerek['JUDUL']; ?>
+                <?= $getMerek['judul']; ?>
             </div>
 
             <b>Satuan Kerja</b>
             <div class="margin-left-10 margin-bottom-10">
-                <?= $getMerek['SATUAN_KERJA']; ?>
+                <?= $getMerek['satuan_kerja']; ?>
             </div>
 
             <b>Status</b>
             <div class="margin-left-10 margin-bottom-10">
-                <?= $getMerek['STATUS']; ?>
+                <?= $getMerek['status_']; ?>
             </div>
 
             <b>Nomor Pendaftaran</b>
             <div class="margin-left-10 margin-bottom-10">
-                <?php if ($getMerek['NOMOR_PENDAFTAR']) {
-                    $getMerek['NOMOR_PENDAFTAR'];
+                <?php if ($getMerek['nomor_pendaftar']) {
+                    $getMerek['nomor_pendaftar'];
                 } else {
                     echo '-';
                 } ?>
@@ -34,7 +34,7 @@
 
             <b>Tahun Pendaftaran</b>
             <div class="margin-left-10 margin-bottom-10">
-                <?= $getMerek['TAHUN_PENDAFTARAN']; ?>
+                <?= $getMerek['tahun_pendaftaran']; ?>
             </div>
 
             <b>Nomor ID Merek</b>
@@ -44,23 +44,19 @@
 
             <b>Tanggal Sertifikasi</b>
             <div class="margin-left-10 margin-bottom-10">
-                <?= date('d-m-Y', strtotime($getMerek['SERTIFIKASI'])); ?>
+                <?= date('d-m-Y', strtotime($getMerek['sertifikasi'])); ?>
             </div>
 
             <b>Kelas Barang dan Jasa</b>
             <div class="margin-left-10 margin-bottom-10">
-                <?php if ($getMerek['KELAS']) {
-                    $getMerek['KELAS'];
-                } else {
-                    echo '-';
-                } ?>
+                <?= $getMerek['kelas'];?>
             </div>
         </div>
         <div class="col-md-6">
             <b>Inventor</b>
             <div class="margin-left-10 margin-bottom-20 margin-top-20">
                 <?php foreach ($getInventor as $ginv) { ?>
-                <?= $ginv['NAMA']; ?>;
+                <?= $ginv['nama']; ?>;
                 <hr class="hr-xs">
                 <?php } ?>
             </div>
@@ -72,7 +68,7 @@
                     <?php foreach ($getDocument as $gdoc) { ?>
                     <tr>
                         <td><?= $i; ?></td>
-                        <td><?= $gdoc['NAME']; ?></td>
+                        <td><?= $gdoc['name']; ?></td>
                         <td><a class="btn btn-xs btn-default"><i class="fa fa-download"></i></a></td>
                         <?php $i++; ?>
                     </tr>

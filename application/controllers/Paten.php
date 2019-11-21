@@ -6,17 +6,13 @@ class Paten extends CI_Controller
 
     public function index()
     {
-        $data['user'] = $this->db->get_where('msuser', ['email' =>
-        $this->session->userdata('email')])->row_array();
-
-        $this->load->model('Paten_model', 'paten');
-        $data['getPaten'] = $this->paten->getPaten();
+        $data['getPaten'] = $this->lapan_api_library->call4('patens/fgetpaten', ['token' => TOKEN_MT]);
         foreach ($data['getPaten'] as $gp) {
-            $idp = $gp['ID'];
-            $data['getInventor'] = $this->paten->getInventor($idp);
+            $idp = $gp['id'];
+            $data['getInventor'] = $this->lapan_api_library->call4('patens/fgetinventorbyid', ['token' => TOKEN_MT , 'id' => $idp]);
         }
 
-        $data['jumlahPaten'] = $this->paten->getJumlahPaten();
+        $data['jumlahPaten'] = $this->lapan_api_library->call4('patens/fgetjmlpaten', ['token' => TOKEN_MT]);
 
         //========================================  Menu ========================================================//
 
@@ -46,15 +42,13 @@ class Paten extends CI_Controller
 
     public function detail($id)
     {
-        $data['user'] = $this->db->get_where('msuser', ['email' =>
-        $this->session->userdata('email')])->row_array();
+        $getpaten = $this->lapan_api_library->call4('patens/fgetpatenbyid', ['token' => TOKEN_MT ,'id' => $id]);
+        $data['getPaten'] = $getpaten[0];
+        $data['getInventor'] = $this->lapan_api_library->call4('patens/fgetinventorbyid', ['token' => TOKEN_MT , 'id' => $id]);
 
-        $this->load->model('Paten_model', 'paten');
-        $data['getPaten'] = $this->paten->getPatenById($id);
-        $data['getInventor'] = $this->paten->getInventorById($id);
-
-        $code = $data['getPaten']['IPMAN_CODE'];
-        $data['getDocument'] = $this->paten->getDocumentByCode($code);
+        $code = $getpaten[0]['ipman_code'];
+        $document = $this->lapan_api_library->call4('patens/fgetdocumentbycode', ['token' => TOKEN_MT ,'code' => $code]);
+        $data['getDocument'] = $document;
 
         //========================================  Menu ========================================================//
 

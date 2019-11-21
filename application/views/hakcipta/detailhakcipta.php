@@ -2,7 +2,7 @@
 <div class="container margin-bottom-40 margin-top-20">
     <div class="row">
         <div class="col-md-12">
-            <h2 class="title-v4">Detail Merek</h2>
+            <h2 class="title-v4">Detail Hakcipta</h2>
         </div>
 
         <!-- Main Content -->
@@ -10,17 +10,17 @@
 
             <b>Judul Ciptaan</b>
             <div class="margin-left-10 margin-bottom-10">
-                <?= $getHakcipta['JUDUL']; ?>
+                <?= $getHakcipta['judul']; ?>
             </div>
 
             <b>Satuan Kerja</b>
             <div class="margin-left-10 margin-bottom-10">
-                <?= $getHakcipta['SATUAN_KERJA']; ?>
+                <?= $getHakcipta['satuan_kerja']; ?>
             </div>
 
             <b>Status</b>
             <div class="margin-left-10 margin-bottom-10">
-                <?= $getHakcipta['STATUS']; ?>
+                <?= $getHakcipta['status_']; ?>
             </div>
 
             <b>Nomor Pendaftaran</b>
@@ -45,7 +45,7 @@
 
             <b>Jenis Ciptaan</b>
             <div class="margin-left-10 margin-bottom-10">
-                <?= $getHakcipta['JENIS_CIPTAAN']; ?>
+                <?= $getHakcipta['jenis_ciptaan']; ?>
             </div>
 
             <b>Tanggal Pengmuman</b>
@@ -63,7 +63,7 @@
             <b>Inventor</b>
             <div class="margin-left-10 margin-bottom-20 margin-top-20">
                 <?php foreach ($getInventor as $ginv) { ?>
-                <?= $ginv['NAMA']; ?>;
+                <?= $ginv['nama']; ?>;
                 <hr class="hr-xs">
                 <?php } ?>
             </div>
@@ -75,7 +75,7 @@
                     <?php foreach ($getDocument as $gdoc) { ?>
                     <tr>
                         <td><?= $i; ?></td>
-                        <td><?= $gdoc['NAME']; ?></td>
+                        <td><?= $gdoc['name']; ?></td>
                         <td><a class="btn btn-xs btn-default"><i class="fa fa-download"></i></a></td>
                         <?php $i++; ?>
                     </tr>

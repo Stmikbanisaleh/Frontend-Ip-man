@@ -13,8 +13,8 @@
                 <h2> Perolehan Hakcipta</h2>
                 <?php if ($jumlahHakcipta) {
                     foreach ($jumlahHakcipta as $data) {
-                        $tahun[] = (float) $data->tahun;
-                        $total[] = (float) $data->total;
+                        $tahun[] = (float) $data['tahun'];
+                        $total[] = (float) $data['total'];
                     }
                 }
 
@@ -41,19 +41,19 @@
         <tbody>
             <?php $i = 1; ?>
             <?php foreach ($getHakcipta as $hak) : ?>
-            <?php $id = $hak['ID']; ?>
+            <?php $id = $hak['id']; ?>
             <tr id="view_tabel" onclick="viewdata(<?php echo $id ?>)" id=<?= $id; ?>>
                 <td><?= $i ?></td>
-                <td><?= $hak['JUDUL']; ?></td>
-                <td><?= $hak['NAMA_REV'] ?></td>
+                <td><?= $hak['judul']; ?></td>
+                <td><?= $hak['nama_rev'] ?></td>
                 <td>
                     <?php foreach ($getInventor as $gpeg) { ?>
-                    <?php if ($gpeg['ID_HAKCIPTA'] == $hak['ID']) { ?>
-                    <?= $gpeg['NAMA']; ?>;
+                    <?php if ($gpeg['id_hakcipta'] == $hak['id']) { ?>
+                    <?= $gpeg['nama']; ?>;
                     <?php } ?>
                     <?php } ?>
                 </td>
-                <td><?= date('d-m-Y', strtotime($hak['TGL_INPUT'])) ?></td>
+                <td><?= date('d-m-Y', strtotime($hak['createdAt'])) ?></td>
             </tr>
             <?php $i++; ?>
             <?php endforeach; ?>
@@ -73,7 +73,7 @@
     var target = 'hakcipta/detail';
 
     function viewdata(id) {
-        document.location = 'http://localhost/pusispan/ip-man/' + target + '/' + id;
+        document.location = 'http://localhost/frontend-ipman/' + target + '/' + id;
         //Ganti sesuai server
         //document.location = 'http://pusispan.stmik-banisaleh.com/pusispan/ip-man/' + target + '/' + id;
     }

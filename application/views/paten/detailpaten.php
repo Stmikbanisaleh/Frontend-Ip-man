@@ -10,27 +10,27 @@
 
             <b>Judul Invensi</b>
             <div class="margin-left-10 margin-bottom-10">
-                <?= $getPaten['JUDUL']; ?>
+                <?= $getPaten['judul']; ?>
             </div>
 
             <b>Satuan Kerja</b>
             <div class="margin-left-10 margin-bottom-10">
-                <?= $getPaten['SATUAN_KERJA']; ?>
+                <?= $getPaten['satuan_kerja']; ?>
             </div>
 
             <b>Status</b>
             <div class="margin-left-10 margin-bottom-10">
-                <?= $getPaten['STATUS']; ?>
+                <?= $getPaten['status_']; ?>
             </div>
 
             <b>Nomor Pendaftaran</b>
             <div class="margin-left-10 margin-bottom-10">
-                <?= $getPaten['NOMOR_PERMOHONAN']; ?>
+                <?= $getPaten['nomor_permohonan']; ?>
             </div>
 
             <b>Tanggal Pendaftaran</b>
             <div class="margin-left-10 margin-bottom-10">
-                <?= date('d-m-Y', strtotime($getPaten['FILLING'])); ?>
+                <?= date('d-m-Y', strtotime($getPaten['filling'])); ?>
             </div>
 
             <b>Nomor ID Paten</b>
@@ -40,12 +40,12 @@
 
             <b>Tanggal Sertifikasi</b>
             <div class="margin-left-10 margin-bottom-10">
-                <?= date('d-m-Y', strtotime($getPaten['SERTIFIKASI'])); ?>
+                <?= date('d-m-Y', strtotime($getPaten['sertifikasi'])); ?>
             </div>
 
             <b>Jenis Paten</b>
             <div class="margin-left-10 margin-bottom-10">
-                <?php if ($getPaten['JENIS_PATEN'] == 'PB') {
+                <?php if ($getPaten['jenis_paten'] == 'PB') {
                     $paten = 'Paten Biasa';
                 } else {
                     $paten = 'Paten Sederhana';
@@ -55,12 +55,12 @@
 
             <b>Bidang Teknik</b>
             <div class="margin-left-10 margin-bottom-10">
-                <?= $getPaten['BIDANG_TEKNIK']; ?>
+                <?= $getPaten['bidang_invensi']; ?>
             </div>
 
             <b>Abstrak</b>
             <div class="margin-left-10 margin-bottom-10">
-                <?= $getPaten['ABSTRAK']; ?>
+                <?= $getPaten['abstrak']; ?>
             </div>
 
             <b>Jumlah Klaim</b>
@@ -88,7 +88,7 @@
             <b>Inventor</b>
             <div class="margin-left-10 margin-bottom-20 margin-top-20">
                 <?php foreach ($getInventor as $ginv) { ?>
-                <?= $ginv['NAMA']; ?>;
+                <?= $ginv['nama']; ?>;
                 <hr class="hr-xs">
                 <?php } ?>
             </div>
@@ -100,7 +100,7 @@
                     <?php foreach ($getDocument as $gdoc) { ?>
                     <tr>
                         <td><?= $i; ?></td>
-                        <td><?= $gdoc['NAME']; ?></td>
+                        <td><?= $gdoc['name']; ?></td>
                         <td><a class="btn btn-xs btn-default"><i class="fa fa-download"></i></a></td>
                         <?php $i++; ?>
                     </tr>

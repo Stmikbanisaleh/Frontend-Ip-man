@@ -12,8 +12,8 @@
                 <h2> Pendaftaran Merek</h2>
                 <?php if ($jumlahMerek) {
                     foreach ($jumlahMerek as $data) {
-                        $tahun[] = (float) $data->tahun;
-                        $total[] = (float) $data->total;
+                        $tahun[] = (int) $data['tahun'];
+                        $total[] = (int) $data['total'];
                     }
                 }
                 ?>
@@ -37,19 +37,19 @@
         <tbody>
             <?php $i = 1; ?>
             <?php foreach ($getMerek as $mrk) : ?>
-            <?php $id = $mrk['ID']; ?>
+            <?php $id = $mrk['id']; ?>
             <tr id="view_tabel" onclick="viewdata(<?php echo $id ?>)" id=<?= $id; ?>>
                 <td><?= $i ?></td>
-                <td><?= $mrk['JUDUL']; ?></td>
-                <td><?= $mrk['NAMA_REV'] ?></td>
+                <td><?= $mrk['judul']; ?></td>
+                <td><?= $mrk['nama_rev'] ?></td>
                 <td>
                     <?php foreach ($getInventor as $gpeg) { ?>
-                    <?php if ($gpeg['ID_MEREK'] == $mrk['ID']) { ?>
-                    <?= $gpeg['NAMA']; ?>;
+                    <?php if ($gpeg['id_merek'] == $mrk['id']) { ?>
+                    <?= $gpeg['nama']; ?>;
                     <?php } ?>
                     <?php } ?>
                 </td>
-                <td><?= date('d-m-Y', strtotime($mrk['TGL_INPUT'])) ?></td>
+                <td><?= date('d-m-Y', strtotime($mrk['createdAt'])) ?></td>
             </tr>
             <?php $i++; ?>
             <?php endforeach; ?>
@@ -69,7 +69,7 @@
     var target = 'merek/detail';
 
     function viewdata(id) {
-        document.location = 'http://localhost/pusispan/ip-man/' + target + '/' + id;
+        document.location = 'http://localhost/frontend-ipman/' + target + '/' + id;
         //Ganti sesuai server
         //document.location = 'http://pusispan.stmik-banisaleh.com/pusispan/ip-man/' + target + '/' + id;
     }

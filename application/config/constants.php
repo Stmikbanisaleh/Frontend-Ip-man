@@ -84,19 +84,19 @@ defined('EXIT_DATABASE')       OR define('EXIT_DATABASE', 8); // database error
 defined('EXIT__AUTO_MIN')      OR define('EXIT__AUTO_MIN', 9); // lowest automatically-assigned error code
 defined('EXIT__AUTO_MAX')      OR define('EXIT__AUTO_MAX', 125); // highest automatically-assigned error code
 
-// define('URL_API_BACKEND', 'http://localhost:3003');
-// define('URL_API_DOWNLOAD', 'http://localhost:3002/lib/download/download/');
-// define('URL_API_DOWNLOAD_MT', 'http://localhost:3001/lib/download/download/');
-
-// define('TOKEN', 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InVzZXJzQGxhcGFuLmdvLmlkIiwicm9sZSI6MTgsImlzX2FjdGl2ZSI6MywiaWF0IjoxNTczNDg0OTIyfQ.7EbZX1ccYg0JO8mk4qyKNgBe5cyDrzwzs83Kh4mrKrQ');
-
-// define('URL_API_GATEWAY', 'http://localhost:3000');
-
-define('URL_API_BACKEND', 'http://192.168.137.4:3003');
-define('URL_API_DOWNLOAD', 'http://192.168.137.4:3003/lib/download/download/');
+define('URL_API_FRONTEND', 'http://localhost:3003');
+define('URL_API_DOWNLOAD', 'http://localhost:3002/lib/download/download/');
 define('URL_API_DOWNLOAD_MT', 'http://localhost:3001/lib/download/download/');
-define('URL_API_GATEWAY', 'http://192.168.137.4:3000');
-define('URL_API_MT', 'http://192.168.137.4:3001');
 
 define('TOKEN', 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InVzZXJzQGxhcGFuLmdvLmlkIiwicm9sZSI6MTgsImlzX2FjdGl2ZSI6MywiaWF0IjoxNTczNDg0OTIyfQ.7EbZX1ccYg0JO8mk4qyKNgBe5cyDrzwzs83Kh4mrKrQ');
+
+define('URL_API_GATEWAY', 'http://localhost:3000');
+
+// define('URL_API_BACKEND', 'http://localhost:3003');
+// define('URL_API_DOWNLOAD', 'http://localhost:3003/lib/download/download/');
+// define('URL_API_DOWNLOAD_MT', 'http://localhost:3001/lib/download/download/');
+// define('URL_API_GATEWAY', 'http://localhost:3000');
+define('URL_API_MT', 'http://localhost:3001');
+
+// define('TOKEN', 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InVzZXJzQGxhcGFuLmdvLmlkIiwicm9sZSI6MTgsImlzX2FjdGl2ZSI6MywiaWF0IjoxNTczNDg0OTIyfQ.7EbZX1ccYg0JO8mk4qyKNgBe5cyDrzwzs83Kh4mrKrQ');
 define('TOKEN_MT', 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImltZ2FuMkBsYXBhbi5nby5pZCIsInJvbGUiOjE1LCJpc19hY3RpdmUiOjMsImlhdCI6MTU3NDA5MDE2MywiZXhwIjoxNTc2NjgyMTYzfQ.QaG4XQxgwvjzSnC2QK8fzZpBKzShaR5T0LNQVNrlWJE');

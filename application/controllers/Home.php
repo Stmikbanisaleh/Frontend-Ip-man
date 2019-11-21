@@ -4,16 +4,10 @@ defined('BASEPATH') or exit('No direct script access allowed');
 class Home extends CI_Controller
 {
 
-    public function __construct()
-    {
-        parent::__construct();
-    }
-
     public function index()
     {
         $getKegiatanMt = $this->lapan_api_library->call('kegiatan/getkegiatanmt', ['token' => TOKEN]);
         $data['kmt'] = $getKegiatanMt['rows'][0];
-
         $hasil_listberita = $this->lapan_api_library->call('berita/getlistberita', ['token' => TOKEN]);
         $data['berita'] = $hasil_listberita['rows'];
 

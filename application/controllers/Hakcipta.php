@@ -6,16 +6,14 @@ class Hakcipta extends CI_Controller
 
     public function index()
     {
-        $data['user'] = $this->db->get_where('msuser', ['email' =>
-        $this->session->userdata('email')])->row_array();
+        $gethakcipta = $this->lapan_api_library->call4('hakciptas/fgethakcipta', ['token' => TOKEN_MT]);
 
-        $this->load->model('Hakcipta_model', 'Hakcipta');
-        $data['getHakcipta'] = $this->Hakcipta->getHakcipta();
+        $data['getHakcipta'] = $gethakcipta;
         foreach ($data['getHakcipta'] as $gp) {
-            $idp = $gp['ID'];
-            $data['getInventor'] = $this->Hakcipta->getInventor($idp);
+            $idp = $gp['id'];
+            $data['getInventor'] = $gethakcipta = $this->lapan_api_library->call4('hakciptas/fgetinventorbyid', ['token' => TOKEN_MT , 'id' => $idp]);
         }
-        $data['jumlahHakcipta'] = $this->Hakcipta->getJumlahHakcipta();
+        $data['jumlahHakcipta'] =  $this->lapan_api_library->call4('hakciptas/fgetjmlhakcipta', ['token' => TOKEN_MT]);
 
         //========================================  Menu ========================================================//
 
@@ -45,16 +43,12 @@ class Hakcipta extends CI_Controller
 
     public function detail($id)
     {
-        $data['user'] = $this->db->get_where('msuser', ['email' =>
-        $this->session->userdata('email')])->row_array();
-
-        $this->load->model('Hakcipta_model', 'hakcipta');
-        $data['getHakcipta'] = $this->hakcipta->getHakciptaById($id);
-        $data['getInventor'] = $this->hakcipta->getInventorById($id);
-
-        $code = $data['getHakcipta']['IPMAN_CODE'];
-        $data['getDocument'] = $this->hakcipta->getDocumentByCode($code);
-
+       $gethakcipta = $this->lapan_api_library->call4('hakciptas/fgethakciptabyid', ['token' => TOKEN_MT ,'id' => $id]);
+       $data['getHakcipta'] = $gethakcipta[0];
+        $data['getInventor'] = $this->lapan_api_library->call4('hakciptas/fgetinventorbyid', ['token' => TOKEN_MT , 'id' => $id]);
+        $code = $data['getHakcipta']['ipman_code'];
+        $document = $this->lapan_api_library->call4('hakciptas/fgetdocumentbycode', ['token' => TOKEN_MT ,'code' => $code]);
+        $data['getDocument']  = $document;
         //========================================  Menu ========================================================//
 
         $data['uri'] = $this->uri->segment(1);

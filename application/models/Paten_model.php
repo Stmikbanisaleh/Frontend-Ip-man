@@ -15,11 +15,7 @@ class Paten_model extends CI_Model
 
     public function getPatenById($id)
     {
-        $query = "SELECT `mspaten`.*,
-                            (SELECT 
-                                NAMA_REV
-                            FROM
-                                msrev
+        $query = "SELECT `mspaten`.*, (SELECT NAMA_REV FROM msrev
                             WHERE
                                 ID = `mspaten`.`UNIT_KERJA`) as SATUAN_KERJA,
                             (SELECT 

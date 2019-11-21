@@ -11,7 +11,7 @@
 class Lapan_api_library
 {
 	// private $api_endpoint = URL_API_LAPAN_MT;
-	private $api_endpoint = URL_API_BACKEND;
+	private $api_endpoint = URL_API_FRONTEND;
 	private $api_endpoint3 = URL_API_GATEWAY;
 	private $api_endpoint4 = URL_API_MT;
 

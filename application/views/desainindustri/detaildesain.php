@@ -2,12 +2,11 @@
 <div class="container margin-bottom-40 margin-top-20">
     <div class="row">
         <div class="col-md-12">
-            <h2 class="title-v4">Detail Merek</h2>
+            <h2 class="title-v4">Detail Desain</h2>
         </div>
 
         <!-- Main Content -->
         <div class="col-md-6 margin-bottom-20">
-
             <b>Nama Desain Industri</b>
             <div class="margin-left-10 margin-bottom-10">
                 <?= $getDesain['judul']; ?>
@@ -20,7 +19,7 @@
 
             <b>Status</b>
             <div class="margin-left-10 margin-bottom-10">
-                <?= $getDesain['status']; ?>
+                <?= $getDesain['status_']; ?>
             </div>
 
             <b>Nomor Pendaftaran</b>

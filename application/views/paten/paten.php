@@ -13,8 +13,8 @@
                 <h2> Produktivitas Paten</h2>
                 <?php if ($jumlahPaten) {
                     foreach ($jumlahPaten as $data) {
-                        $tahun[] = (float) $data->tahun;
-                        $total[] = (float) $data->total;
+                        $tahun[] = (float) $data['tahun'];
+                        $total[] = (float) $data['total'];
                     }
                 }
                 ?>
@@ -40,19 +40,19 @@
         <tbody>
             <?php $i = 1; ?>
             <?php foreach ($getPaten as $ptn) : ?>
-            <?php $id = $ptn['ID']; ?>
+            <?php $id = $ptn['id']; ?>
             <tr id="view_tabel" onclick="viewdata(<?php echo $id ?>)" id=<?= $id; ?>>
                 <td><?= $i ?></td>
-                <td><?= $ptn['JUDUL']; ?></td>
-                <td><?= $ptn['NAMA_REV'] ?></td>
+                <td><?= $ptn['judul']; ?></td>
+                <td><?= $ptn['nama_rev'] ?></td>
                 <td>
                     <?php foreach ($getInventor as $gpeg) { ?>
-                    <?php if ($gpeg['ID_PATEN'] == $ptn['ID']) { ?>
-                    <?= $gpeg['NAMA']; ?>;
+                    <?php if ($gpeg['id_paten'] == $ptn['id']) { ?>
+                    <?= $gpeg['nama']; ?>;
                     <?php } ?>
                     <?php } ?>
                 </td>
-                <td><?= date('d-m-Y', strtotime($ptn['TGL_INPUT'])) ?></td>
+                <td><?= date('d-m-Y', strtotime($ptn['createdAt'])) ?></td>
             </tr>
             <?php $i++; ?>
             <?php endforeach; ?>
@@ -71,7 +71,7 @@
     var target = 'paten/detail';
 
     function viewdata(id) {
-        document.location = 'http://localhost/pusispan/ip-man/' + target + '/' + id;
+        document.location = 'http://localhost/frontend-ipman/' + target + '/' + id;
     }
 </script>
 <script>
